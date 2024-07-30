@@ -139,7 +139,7 @@ let str = `╔═════ ∘◦ ✾ ◦∘ ══════╗
 ║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
 ╚═════ ∘◦ ❈ ◦∘ ══════╝
 
-🕸️ *𝓦𝓮𝓵𝓬𝓸𝓶𝓮, ${taguser}* 🕸️
+🕸️ *𝓦𝓮𝓬𝓸𝓶𝓮, ${taguser}* 🕸️
 
 ║⬛ 𝗨𝘀𝗲𝗿: ${username}
 ║⬛ 𝗗𝗮𝘁𝗲: ${horarioFecha}
@@ -182,7 +182,7 @@ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo �
 ╚══════════════
 
 `
-conn.sendFile(m.chat, gataImg.getRandom(), 'gata.jpg', str, m)
+conn.sendFile(m.chat, gataImg, 'gata.jpg', str, m)
 }} catch (e) {
 conn.reply(m.chat, lenguajeGB.smsMalError3() + usedPrefix + command + '\n\n' + e.stack, null, m)
 console.error(e)
