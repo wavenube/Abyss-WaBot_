@@ -1,5 +1,5 @@
 // Código elaborado por GataNina-Li (Gata Dios)
-
+/*
 let { downloadContentFromMessage } = (await import(global.baileys))
 import uploadImage from '../lib/uploadImage.js'
 import { webp2png } from '../lib/webp2mp4.js'
@@ -90,3 +90,4 @@ return true
 return false
 }
 
+*/
