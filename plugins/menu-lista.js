@@ -86,7 +86,7 @@ lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
 if (!/web|desktop|unknown/gi.test(dispositivo)) {  
-let menu =  ╭━━❍Abyss - Bot❍━━╮ 
+let menu =  '╭━━❍Abyss - Bot❍━━╮ 
  ┃ ╭━━━━━━━━━━━━━━━━╮ 
  ┃ ┃ ╭┈────────────╮ 
  ┃ ┃ │❍ 🅼🅴🅽🆄 ❍ 
@@ -117,7 +117,7 @@ let menu =  ╭━━❍Abyss - Bot❍━━╮
 ⊜ *Experiencia ➟* ${exp} ⚡
 ⊜ *Diamantes ➟* ${limit} 💎
 ⊜ *GataCoins ➟* ${money} 🐈
-⊜ *Tokens ➟* ${joincount} 🪙.trim()
+⊜ *Tokens ➟* ${joincount} 🪙' .trim()
       
 const buttonParamsJson = JSON.stringify({
 title: "VER LISTA",
