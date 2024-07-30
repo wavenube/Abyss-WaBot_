@@ -171,89 +171,111 @@ await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
 } else { 
 let menu = `${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? `🕶️` : user.genero == 'Mujer 🚺' ? `🚺` : user.genero == 'Hombre 🚹' ? `🚹` : '👤'} ${user.registered === true ? user.name : taguser} 💖*
 
-⎔ \`\`\`${horarioFecha}\`\`\`
-⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
-⎔ *Registrados »* ${rtotalreg}/${totalreg}    
-⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
-⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
-⎔ *${lenguajeGB['smsMode']()} ➺* _${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}_
-⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
-⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_ ${(conn.user.jid == global.conn.user.jid ? '' : `\n⎔ *SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
+╔═════ ∘◦ ✾ ◦∘ ══════╗
+║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
+╚═════ ∘◦ ❈ ◦∘ ══════╝
 
-✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
-⊜ *Tipo de registro »* ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _Sin registro_'}
-⊜ *Mi estado »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
-⊜ *Registrado »* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
-⊜ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
-⊜ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »* ${role}
-⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »* ${emoji} || ${user.exp - min}/${xp}
-⊜ *${lenguajeGB['smsPareja']()}* ${pareja ? `\n*»* ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-⊜ *Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
-⊜ *Experiencia ➟* ${exp} ⚡
-⊜ *Diamantes ➟* ${limit} 💎
-⊜ *GataCoins ➟* ${money} 🐈
-⊜ *Tokens ➟* ${joincount} 🪙
+🕸️ *𝓦𝓮𝓵𝓬𝓸𝓶𝓮, ${taguser}* 🕸️
 
-*╭━〔 🐈 OPCIONES DE MENU 🐈 〕⬣*
+║⬛ 𝗨𝘀𝗲𝗿: ${username}
+║⬛ 𝗗𝗮𝘁𝗲: ${horarioFecha}
+║⬛ 𝗨𝗽𝘁𝗶𝗺𝗲: ${uptime}
+
+══════════════
+𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎𝖔𝖓 𝖉𝖊𝖑 𝖀𝖘𝖚𝖆𝖗𝖎𝖔
+══════════════
+
+⬛ *𝗧𝗶𝗽𝗼 𝗱𝗲 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗼:*
+${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _Sin registro_'}
+⬛ *𝗠𝗶 𝗲𝘀𝘁𝗮𝗱𝗼:* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
+⬛ *𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼:* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
+⬛ *𝗣𝗿𝗲𝗺𝗶𝘂𝗺:* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
+⬛ *𝗥𝗼𝗹:* ${role}
+⬛ *𝗡𝗶𝘃𝗲𝗹:* ${emoji} || ${user.exp - min}/${xp}
+⬛ *𝗣𝗮𝗿𝗲𝗷𝗮:* ${pareja ? `\n*»* ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
+⬛ *𝗣𝗮𝘀𝗮𝘁𝗶𝗲𝗺𝗽𝗼(𝘀):* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+⬛ *𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗶𝗮:* ${exp} ⚡
+⬛ *𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀:* ${limit} 💎
+⬛ *𝗚𝗮𝘁𝗮𝗖𝗼𝗶𝗻𝘀:* ${money} 🐈
+⬛ *𝗧𝗼𝗸𝗲𝗻𝘀:* ${joincount} 🪙
+
+══════════════
+𝕺𝖕𝖈𝖎𝖔𝖓𝖊𝖘 𝖉𝖊𝖑 𝕸𝖊𝖓𝖚
+══════════════
+
+⛧ _${usedPrefix}menucompleto | allmenu_
+⛧ _${usedPrefix}menuaudio | menuaudios_
+⛧ _${usedPrefix}infomenu_
+⛧ _${usedPrefix}juegosmenu_
+⛧ _${usedPrefix}serxgrupos_
+
+══════════════
+⛤ *${vs}* 
+> ║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
+> ║⬛ *_𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗢𝗙𝗖._* ${ig}
+> ║⬛ *_𝗥𝗘𝗗𝗘𝗦 𝗢𝗙𝗖._* ${wm}
+> ╚══════════════ 
+
+*╭━〔 ⬛ OPCIONES DE MENÚ ⬛ 〕⬣
 ┃
-┃Ⓜ️ _*MENÚ COMPLETO*_ Ⓜ️
-┃➺ _${usedPrefix}menucompleto | allmenu_
+┃🌑 MENÚ COMPLETO 🌑
+┃➺ ${usedPrefix}menucompleto | allmenu
 ┃
-┃🔊 _*MENÚ DE AUDIOS*_ 🔊
-┃➺ _${usedPrefix}menuaudio | menuaudios_
+┃🔊 MENÚ DE AUDIOS 🔊
+┃➺ ${usedPrefix}menuaudio | menuaudios
 ┃
-┃💫 _${lenguajeGB['smsTex13']()}_ 💫
-┃➺ _${usedPrefix}infomenu_
+┃💫 ${lenguajeGB'smsTex13'} 💫
+┃➺ ${usedPrefix}infomenu
 ┃
-┃👾 _${lenguajeGB['smsTex10']()}_ 👾
-┃➺ _${usedPrefix}juegosmenu_
+┃👾 ${lenguajeGB'smsTex10'} 👾
+┃➺ ${usedPrefix}juegosmenu
 ┃
-┃🚀 _${lenguajeGB['smsTex9']()}_ 🚀
-┃➺ _${usedPrefix}descargasmenu_
+┃🚀 ${lenguajeGB'smsTex9'} 🚀
+┃➺ ${usedPrefix}descargasmenu
 ┃
-┃🔐 _${lenguajeGB['smsTex11']()}_ 🔐
-┃➺ _${usedPrefix}grupomenu_
+┃🔐 ${lenguajeGB'smsTex11'} 🔐
+┃➺ ${usedPrefix}grupomenu
 ┃
-┃🧸 _${lenguajeGB['smsTex22']()}_ 🧸
-┃➺ _${usedPrefix}stickermenu_
+┃🧸 ${lenguajeGB'smsTex22'} 🧸
+┃➺ ${usedPrefix}stickermenu
 ┃
-┃🛠️ _${lenguajeGB['smsTex12']()}_ 🛠️
-┃➺ _${usedPrefix}herramientasmenu_
+┃🛠️ ${lenguajeGB'smsTex12'} 🛠️
+┃➺ ${usedPrefix}herramientasmenu
 ┃
-┃⛩️ _${lenguajeGB['smsTex23']()}_ ⛩️
-┃➺ _${usedPrefix}randommenu_
+┃⛩️ ${lenguajeGB'smsTex23'} ⛩️
+┃➺ ${usedPrefix}randommenu
 ┃
-┃🛰️ _${lenguajeGB['smsTex8']()}_ 🛰️
-┃➺ _${usedPrefix}convertidormenu_
+┃🛰️ ${lenguajeGB'smsTex8'} 🛰️
+┃➺ ${usedPrefix}convertidormenu
 ┃
-┃🎈 _${lenguajeGB['smsTex1']()}_🎈
-┃➺ _${usedPrefix}buscarmenu_
+┃🎈 ${lenguajeGB'smsTex1'} 🎈
+┃➺ ${usedPrefix}buscarmenu
 ┃
-┃🎧 _${lenguajeGB['smsTex2']()}_ 🎧
-┃➺ _${usedPrefix}audioefectomenu_
+┃🎧 ${lenguajeGB'smsTex2'} 🎧
+┃➺ ${usedPrefix}audioefectomenu
 ┃
-┃🔞 _${lenguajeGB['smsTex3']()}_ 🔞
-┃➺ _${usedPrefix}menu18 | hornymenu_
+┃🔞 ${lenguajeGB'smsTex3'} 🔞
+┃➺ ${usedPrefix}menu18 | hornymenu
 ┃
-┃⚗️ _${lenguajeGB['smsTex21']()}_ ⚗️
-┃➺ _${usedPrefix}rpgmenu_
+┃⚗️ ${lenguajeGB'smsTex21'} ⚗️
+┃➺ ${usedPrefix}rpgmenu
 ┃
-┃⛺ _${lenguajeGB['smsTex14']()}_ ⛺
-┃➺ _${usedPrefix}makermenu_
+┃⛺ ${lenguajeGB'smsTex14'} ⛺
+┃➺ ${usedPrefix}makermenu
 ┃
-┃💮 _${lenguajeGB['smsTex15']()}_ 💮
-┃➺ _${usedPrefix}menulogos2_
+┃💮 ${lenguajeGB'smsTex15'} 💮
+┃➺ ${usedPrefix}menulogos2
 ┃
-┃🌅 _${lenguajeGB['smsTex15']()}_ 🌅
-┃➺ _${usedPrefix}menulogos2_
+┃🌅 ${lenguajeGB'smsTex15'} 🌅
+┃➺ ${usedPrefix}menulogos2
 ┃
-┃💎 _${lenguajeGB['smsTex20']()}_ 💎
-┃➺ _${usedPrefix}ownermenu_
+┃💎 ${lenguajeGB'smsTex20'} 💎
+┃➺ ${usedPrefix}ownermenu
 ┃
-┃✅ *_CUENTAS OFICIALES GATABOT_* ✅
-┃➺ _${usedPrefix}cuentasgatabot | cuentasgb_
+┃✅ CUENTAS OFICIALES GATABOT ✅
+┃➺ ${usedPrefix}cuentasgatabot | cuentasgb
 ┃
-*╰━━━━━━━━━━━━━⬣*`.trim()
+╰━━━━━━━━━━━━━⬣*`.trim()
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
 await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
