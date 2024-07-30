@@ -1266,18 +1266,18 @@ m.reply('Exp limit') // Hehehe
 else               
 if (!isPrems && plugin.money && global.db.data.users[m.sender].money < plugin.money * 1) {
 //this.reply(m.chat, `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`, m)
-this.sendMessage(m.chat, {text: `🐈 𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `*NO TIENES COINS*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' Abyss Bot ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 continue     
 }
 			
 m.exp += xp
 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' Abyss Bot ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont7']()} *${usedPrefix}buy*`, m)
 continue //Sin límite
 }
 if (plugin.level > _user.level) {
-this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
+this.sendMessage(m.chat, {text: `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`,  contextInfo: {externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' Abyss Bot ', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}, { quoted: m })         
 //this.reply(m.chat, `${lenguajeGB['smsCont9']()} *${plugin.level}* ${lenguajeGB['smsCont10']()} *${_user.level}* ${lenguajeGB['smsCont11']()} *${usedPrefix}nivel*`, m)
 continue // Si no se ha alcanzado el nivel
 }
@@ -1336,7 +1336,7 @@ if (m.limit)
 m.reply(+m.limit + lenguajeGB.smsCont8())
 }
 if (m.money)
-m.reply(+m.money + ' 𝙂𝘼𝙏𝘼𝘾𝙊𝙄𝙉𝙎 🐱 𝙐𝙎𝘼𝘿𝙊(𝙎)')  
+m.reply(+m.money + ' COINS USADOS')  
 break
 }}} catch (e) {
 console.error(e)
@@ -1467,10 +1467,10 @@ mentionedJid:[user],
 "showAdAttribution": true,
 "renderLargerThumbnail": true,
 "thumbnail": apii.data, 
-"title": [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(),
+"title": [wm, '* SUPER * ' + gt + ' 😻', 'center abyssbot@gmail.com'].getRandom(),
 "containsAutoReply": true,
 "mediaType": 1, 
-sourceUrl: accountsgb ? accountsgb : 'https://github.com/GataNina-Li/GataBot-MD' }}}, { quoted: fkontak2 })
+sourceUrl: accountsgb ? accountsgb : 'https://github.com/wavenube/Abyss-WaBot_' }}}, { quoted: fkontak2 })
 apii.data = ''
 //this.sendFile(id, apii.data, 'pp.jpg', text, null, false, { mentions: [user] }, { quoted: fkontak2 })
 }}}
@@ -1559,7 +1559,7 @@ restrict: lenguajeGB['smsRestrict'](),
 //if (msg) return m.reply(msg)
 	
 let tg = { quoted: m, userJid: conn.user.jid }
-let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centergatabot.gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
+let prep = generateWAMessageFromContent(m.chat, { extendedTextMessage: { text: msg, contextInfo: { externalAdReply: { title: lenguajeGB.smsAvisoAG().slice(0,-2), body: [wm, '😻 𝗦𝘂𝗽𝗲𝗿 ' + gt + ' 😻', '🌟 centerabyssbot@gmail.com'].getRandom(), thumbnail: gataImg, sourceUrl: accountsgb }}}}, tg)
 if (msg) return conn.relayMessage(m.chat, prep.message, { messageId: prep.key.id })
 }
 
