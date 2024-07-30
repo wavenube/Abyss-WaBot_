@@ -86,50 +86,38 @@ lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
 if (!/web|desktop|unknown/gi.test(dispositivo)) {  
-let menu =  ╔═════ ∘◦ ✾ ◦∘ ══════╗
-║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
-╚═════ ∘◦ ❈ ◦∘ ══════╝
+let menu =  ╭━━❍Abyss - Bot❍━━╮ 
+ ┃ ╭━━━━━━━━━━━━━━━━╮ 
+ ┃ ┃ ╭┈────────────╮ 
+ ┃ ┃ │❍ 🅼🅴🅽🆄 ❍ 
+ ┃ ┃ ╰┈────────────╯ 
+ ┃ ╰━━━━━━━━━━━━━━━━╯ 
+ ┣━━━▢ ʙᴜᴇɴᴀꜱ, ${taguser}• 
+ ┃╭━━━━━━━━━━━━━━━━╾• 
+ ┃┃  ❍ *_${Object.keys(global.db.data.users).length}_*  ❍ 
+ ┃┣━━━━━━━━━━━━━━━━╾• 
+ ┃┃ ⋄ ᴄʀᴇᴀᴅᴏʀ ᴅᴇʟ ʙᴏᴛ:  Shizu-Hub 
+ ┃┃ ⋄ ꜰᴇᴄʜᴀ » ${horarioFecha} 
+ ┃┃ ⋄ ᴛɪᴇᴍᴘᴏ ᴀᴄᴛɪᴠᴏ » ${uptime} 
+ ┃┃ ⋄ ʟᴇɴɢᴜᴀᴊᴇ » ꜱᴘᴀɴɪꜱʜ 
+ ┃┃ ⋄ _${global.opts['self'] ? ${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()} : ${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}}_
+ ┃╰━━━━━━━━━━━━━━━━╾• 
+ ╰━━━╼Abyss - Bot╾━━━╯ 
 
-🕸️ *𝓦𝓮𝓵𝓬𝓸𝓶𝓮, ${taguser}* 🕸️
 
-║⬛ 𝗨𝘀𝗲𝗿: ${username}
-║⬛ 𝗗𝗮𝘁𝗲: ${horarioFecha}
-║⬛ 𝗨𝗽𝘁𝗶𝗺𝗲: ${uptime}
-
-══════════════
-𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎𝖔𝖓 𝖉𝖊𝖑 𝖀𝖘𝖚𝖆𝖗𝖎𝖔
-══════════════
-
-⬛ *𝗧𝗶𝗽𝗼 𝗱𝗲 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗼:*
-${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _Sin registro_'}
-⬛ *𝗠𝗶 𝗲𝘀𝘁𝗮𝗱𝗼:* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
-⬛ *𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼:* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
-⬛ *𝗣𝗿𝗲𝗺𝗶𝘂𝗺:* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
-⬛ *𝗥𝗼𝗹:* ${role}
-⬛ *𝗡𝗶𝘃𝗲𝗹:* ${emoji} || ${user.exp - min}/${xp}
-⬛ *𝗣𝗮𝗿𝗲𝗷𝗮:* ${pareja ? `\n*»* ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-⬛ *𝗣𝗮𝘀𝗮𝘁𝗶𝗲𝗺𝗽𝗼(𝘀):* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
-⬛ *𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗶𝗮:* ${exp} ⚡
-⬛ *𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀:* ${limit} 💎
-⬛ *𝗖𝗼𝗶𝗻𝘀:* ${money} 🐈
-⬛ *𝗧𝗼𝗸𝗲𝗻𝘀:* ${joincount} 🪙
-
-══════════════
-𝕺𝖕𝖈𝖎𝖔𝖓𝖊𝖘 𝖉𝖊𝖑 𝕸𝖊𝖓𝖚
-══════════════
-
-⛧ _${usedPrefix}menucompleto | allmenu_
-⛧ _${usedPrefix}menuaudio | menuaudios_
-⛧ _${usedPrefix}infomenu_
-⛧ _${usedPrefix}juegosmenu_
-⛧ _${usedPrefix}serxgrupos_
-
-══════════════
-⛤ *${vs}* 
-> ║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
-║⬛ *_𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗢𝗙𝗖._* ${ig}
-║⬛ *_𝗥𝗘𝗗𝗘𝗦 𝗢𝗙𝗖._* ${wm}
-╚══════════════ .trim()
+✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
+⊜ *Tipo de registro »* ${user.registered === true ? _${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_ : '❌ _Sin registro_'}
+⊜ *Mi estado »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
+⊜ *Registrado »* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
+⊜ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
+⊜ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »* ${role}
+⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »* ${emoji} || ${user.exp - min}/${xp}
+⊜ *${lenguajeGB['smsPareja']()}* ${pareja ? \n*»* ${name} 💕 ${conn.getName(pareja)} : 🛐 ${lenguajeGB['smsResultPareja']()}}
+⊜ *Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+⊜ *Experiencia ➟* ${exp} ⚡
+⊜ *Diamantes ➟* ${limit} 💎
+⊜ *GataCoins ➟* ${money} 🐈
+⊜ *Tokens ➟* ${joincount} 🪙.trim()
       
 const buttonParamsJson = JSON.stringify({
 title: "VER LISTA",
