@@ -63,7 +63,7 @@ github: _package.homepage ? _package.homepage.url || _package.homepage : '[unkno
 level, limit, name, weton, week, date, dateIslamic, time, totalreg, rtotalreg, role,
 readmore: readMore
 }
-text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
+text = text.replace(new RegExp(%(${Object.keys(replace).sort((a, b) => b.length - a.length).join|}), 'g'), (_, name) => '' + replace[name])
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -86,7 +86,7 @@ lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
 if (!/web|desktop|unknown/gi.test(dispositivo)) {  
-let menu = `╔═════ ∘◦ ✾ ◦∘ ══════╗
+let menu =  ╔═════ ∘◦ ✾ ◦∘ ══════╗
 ║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
 ╚═════ ∘◦ ❈ ◦∘ ══════╝
 
@@ -111,7 +111,7 @@ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo �
 ⬛ *𝗣𝗮𝘀𝗮𝘁𝗶𝗲𝗺𝗽𝗼(𝘀):* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
 ⬛ *𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗶𝗮:* ${exp} ⚡
 ⬛ *𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀:* ${limit} 💎
-⬛ *𝗚𝗮𝘁𝗮𝗖𝗼𝗶𝗻𝘀:* ${money} 🐈
+⬛ *𝗖𝗼𝗶𝗻𝘀:* ${money} 🐈
 ⬛ *𝗧𝗼𝗸𝗲𝗻𝘀:* ${joincount} 🪙
 
 ══════════════
@@ -125,80 +125,148 @@ ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo �
 ⛧ _${usedPrefix}serxgrupos_
 
 ══════════════
-⛤ *${vs}*
-
-║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
+⛤ *${vs}* 
+> ║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
 ║⬛ *_𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗢𝗙𝗖._* ${ig}
 ║⬛ *_𝗥𝗘𝗗𝗘𝗦 𝗢𝗙𝗖._* ${wm}
-╚══════════════
+╚══════════════ .trim()
+      
+const buttonParamsJson = JSON.stringify({
+title: "VER LISTA",
+description: "Infórmate por medios oficiales sobre AbyssBot",
+sections: [
+{ title: "ℹ️ Información", highlight_label: "Popular",
+rows: [
+{ header: "✅ Redes", title: "🔓 Para: Todos", description: "Infórmate por medios oficiales sobre GataBot", id: usedPrefix + "cuentasgb" },
+{ header: "📢 Grupos/Canales", title: "🔓 Para: Todos", description: "¡Te esperamos!", id: usedPrefix + "grupos" },
+{ header: "🎁 Donar", title: "🔓 Para: Todos", description: "GataBot se mantiene funcionando gracias a donaciones ¡tú también puedes sumarte apoyando el proyecto!", id: usedPrefix + "donar" }
+]},
+{ title: "🔖 Atajos", highlight_label: "Popular",
+rows: [
+{ header: "🆕 Ser Bot (código)", title: "🔓 Para: Todos", description: "¡Conviértete en Bot con el método de código de 8 dígitos!", id: usedPrefix + "serbot --code" },
+{ header: "🤖 Ser Bot (qr)", title: "🔓 Para: Todos", description: "Forma estándar de ser bot con código QR", id: usedPrefix + "serbot" },
+{ header: "🚄 Velocidad", title: "🔓 Para: Todos", description: "Seleccione esto si desea saber el ping del Bot", id: usedPrefix + "ping" },
+{ header: "😺 Estado", title: "🔓 Para: Todos", description: "Conoce en que estado se encuentra GataBot", id: usedPrefix + "estado" }
+]},
+{ title: "Ⓜ️ Menú", highlight_label: "Popular",
+rows: [
+{ header: "⭐ Menú completo", title: "", description: "Visita todos los comandos", id: usedPrefix + "allmenu" }
+]}
+]})
+const interactiveMessage = {
+body: { text: menu },
+footer: { text: wm +  \nSi algo no funciona utilice el comando *${usedPrefix}menu2* },
+header: { title:  *------- NUEVO MENÚ -------* \n${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? 🕶️ : user.genero == 'Mujer 🚺' ? 🚺 : user.genero == 'Hombre 🚹' ? 🚹 : '👤'} ${user.registered === true ? user.name : taguser} *, subtitle: "test4", hasMediaAttachment: false },
+nativeFlowMessage: { buttons: [{ 
+name: "single_select",
+buttonParamsJson
+}]
+}}
+const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetadataVersion: 2 }, interactiveMessage }
+await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
+      
+} else { 
+let menu = ${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? 🕶️ : user.genero == 'Mujer 🚺' ? 🚺 : user.genero == 'Hombre 🚹' ? 🚹 : '👤'} ${user.registered === true ? user.name : taguser} *
 
-`
-conn.sendFile(m.chat, pp, 'gata.mp4', menu, m, false, { contextInfo: { externalAdReply: { showAdAttribution: true, mediaType: 1, title: 'Bot - Menú', body: null, sourceUrl: redesMenu.getRandom(), thumbnail: imagen1Menu.getRandom() }}})  
-} else {
-let str = `╔═════ ∘◦ ✾ ◦∘ ══════╗
-║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
-╚═════ ∘◦ ❈ ◦∘ ══════╝
+⎔ \\\${horarioFecha}\\\
+⎔ *${lenguajeGB['smsTotalUsers']()}* ➺ _${Object.keys(global.db.data.users).length}_ 
+⎔ *Registrados »* ${rtotalreg}/${totalreg}    
+⎔ *${lenguajeGB['smsUptime']()}* ➺ _${uptime}_ 
+⎔ *${lenguajeGB['smsVersion']()}* ➺ _${vs}_
+⎔ *${lenguajeGB['smsMode']()} ➺* _${global.opts['self'] ? ${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()} : ${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}}_
+⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
+⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_ ${(conn.user.jid == global.conn.user.jid ? '' : \n⎔ *SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split@[0]}*) || ''}
 
-🕸️ *𝓦𝓮𝓬𝓸𝓶𝓮, ${taguser}* 🕸️
+✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
+⊜ *Tipo de registro »* ${user.registered === true ? _${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_ : '❌ _Sin registro_'}
+⊜ *Mi estado »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
+⊜ *Registrado »* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
+⊜ *${lenguajeGB['smsBotonM7']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM7']().slice(1).toLowerCase()} »* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
+⊜ *${lenguajeGB['smsBotonM5']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM5']().slice(1).toLowerCase()} »* ${role}
+⊜ *${lenguajeGB['smsBotonM6']().charAt(0).toUpperCase() + lenguajeGB['smsBotonM6']().slice(1).toLowerCase()} »* ${emoji} || ${user.exp - min}/${xp}
+⊜ *${lenguajeGB['smsPareja']()}* ${pareja ? \n*»* ${name} 💕 ${conn.getName(pareja)} : 🛐 ${lenguajeGB['smsResultPareja']()}}
+⊜ *Pasatiempo(s)* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
+⊜ *Experiencia ➟* ${exp} ⚡
+⊜ *Diamantes ➟* ${limit} 💎
+⊜ *GataCoins ➟* ${money} 🐈
+⊜ *Tokens ➟* ${joincount} 🪙
 
-║⬛ 𝗨𝘀𝗲𝗿: ${username}
-║⬛ 𝗗𝗮𝘁𝗲: ${horarioFecha}
-║⬛ 𝗨𝗽𝘁𝗶𝗺𝗲: ${uptime}
-
-══════════════
-𝕴𝖓𝖋𝖔𝖗𝖒𝖆𝖈𝖎𝖔𝖓 𝖉𝖊𝖑 𝖀𝖘𝖚𝖆𝖗𝖎𝖔
-══════════════
-
-⬛ *𝗧𝗶𝗽𝗼 𝗱𝗲 𝗿𝗲𝗴𝗶𝘀𝘁𝗿𝗼:*
-${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _Sin registro_'}
-⬛ *𝗠𝗶 𝗲𝘀𝘁𝗮𝗱𝗼:* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
-⬛ *𝗥𝗲𝗴𝗶𝘀𝘁𝗿𝗮𝗱𝗼:* ${user.registered === true ? '✅' : '❌ _' + usedPrefix + 'verificar_'}
-⬛ *𝗣𝗿𝗲𝗺𝗶𝘂𝗺:* ${user.premiumTime > 0 ? '✅' : '❌ _' + usedPrefix + 'pase premium_'}
-⬛ *𝗥𝗼𝗹:* ${role}
-⬛ *𝗡𝗶𝘃𝗲𝗹:* ${emoji} || ${user.exp - min}/${xp}
-⬛ *𝗣𝗮𝗿𝗲𝗷𝗮:* ${pareja ? `\n*»* ${name} 💕 ${conn.getName(pareja)}` : `🛐 ${lenguajeGB['smsResultPareja']()}`}
-⬛ *𝗣𝗮𝘀𝗮𝘁𝗶𝗲𝗺𝗽𝗼(𝘀):* ➺ ${user.pasatiempo === 0 ? '*Sin Registro*' : user.pasatiempo + '\n'}
-⬛ *𝗘𝘅𝗽𝗲𝗿𝗶𝗲𝗻𝗰𝗶𝗮:* ${exp} ⚡
-⬛ *𝗗𝗶𝗮𝗺𝗮𝗻𝘁𝗲𝘀:* ${limit} 💎
-⬛ *𝗚𝗮𝘁𝗮𝗖𝗼𝗶𝗻𝘀:* ${money} 🐈
-⬛ *𝗧𝗼𝗸𝗲𝗻𝘀:* ${joincount} 🪙
-
-══════════════
-𝕺𝖕𝖈𝖎𝖔𝖓𝖊𝖘 𝖉𝖊𝖑 𝕸𝖊𝖓𝖚
-══════════════
-
-⛧ _${usedPrefix}menucompleto | allmenu_
-⛧ _${usedPrefix}menuaudio | menuaudios_
-⛧ _${usedPrefix}infomenu_
-⛧ _${usedPrefix}juegosmenu_
-⛧ _${usedPrefix}serxgrupos_
-
-══════════════
-⛤ *${vs}*
-
-║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
-║⬛ *_𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗢𝗙𝗖._* ${ig}
-║⬛ *_𝗥𝗘𝗗𝗘𝗦 𝗢𝗙𝗖._* ${wm}
-╚══════════════
-
-`
-conn.sendFile(m.chat, gataImg, 'gata.jpg', str, m)
+*╭━〔 🐈 OPCIONES DE MENU 🐈 〕⬣*
+┃
+┃Ⓜ️ _*MENÚ COMPLETO*_ Ⓜ️
+┃➺ _${usedPrefix}menucompleto | allmenu_
+┃
+┃🔊 _*MENÚ DE AUDIOS*_ 🔊
+┃➺ _${usedPrefix}menuaudio | menuaudios_
+┃
+┃💫 _${lenguajeGB['smsTex13']()}_ 💫
+┃➺ _${usedPrefix}infomenu_
+┃
+┃👾 _${lenguajeGB['smsTex10']()}_ 👾
+┃➺ _${usedPrefix}juegosmenu_
+┃
+┃🚀 _${lenguajeGB['smsTex9']()}_ 🚀
+┃➺ _${usedPrefix}descargasmenu_
+┃
+┃🔐 _${lenguajeGB['smsTex11']()}_ 🔐
+┃➺ _${usedPrefix}grupomenu_
+┃
+┃🧸 _${lenguajeGB['smsTex22']()}_ 🧸
+┃➺ _${usedPrefix}stickermenu_
+┃
+┃🛠️ _${lenguajeGB['smsTex12']()}_ 🛠️
+┃➺ _${usedPrefix}herramientasmenu_
+┃
+┃⛩️ _${lenguajeGB['smsTex23']()}_ ⛩️
+┃➺ _${usedPrefix}randommenu_
+┃
+┃🛰️ _${lenguajeGB['smsTex8']()}_ 🛰️
+┃➺ _${usedPrefix}convertidormenu_
+┃
+┃🎈 _${lenguajeGB['smsTex1']()}_🎈
+┃➺ _${usedPrefix}buscarmenu_
+┃
+┃🎧 _${lenguajeGB['smsTex2']()}_ 🎧
+┃➺ _${usedPrefix}audioefectomenu_
+┃
+┃🔞 _${lenguajeGB['smsTex3']()}_ 🔞
+┃➺ _${usedPrefix}menu18 | hornymenu_
+┃
+┃⚗️ _${lenguajeGB['smsTex21']()}_ ⚗️
+┃➺ _${usedPrefix}rpgmenu_
+┃
+┃⛺ _${lenguajeGB['smsTex14']()}_ ⛺
+┃➺ _${usedPrefix}makermenu_
+┃
+┃💮 _${lenguajeGB['smsTex15']()}_ 💮
+┃➺ _${usedPrefix}menulogos2_
+┃
+┃🌅 _${lenguajeGB['smsTex15']()}_ 🌅
+┃➺ _${usedPrefix}menulogos2_
+┃
+┃💎 _${lenguajeGB['smsTex20']()}_ 💎
+┃➺ _${usedPrefix}ownermenu_
+┃
+┃✅ *_CUENTAS OFICIALES GATABOT_* ✅
+┃➺ _${usedPrefix}cuentasgatabot | cuentasgb_
+┃
+*╰━━━━━━━━━━━━━⬣*.trim()
+await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
+await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
+//conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
 }} catch (e) {
-conn.reply(m.chat, lenguajeGB.smsMalError3() + usedPrefix + command + '\n\n' + e.stack, null, m)
-console.error(e)
-}
-}
-handler.help = ['menu', 'help', '?']
-handler.tags = ['main']
-handler.command = /^(menu|help|\?)$/i
+await m.reply(lenguajeGB['smsMalError3']() + '\n*' + lenguajeGB.smsMensError1() + '*\n*' + usedPrefix + ${lenguajeGB.lenguaje() == 'es' ? 'reporte' : 'report'} + '* ' + ${lenguajeGB.smsMensError2()}  + usedPrefix + command)
+console.log(❗❗ ${lenguajeGB['smsMensError2']()} ${usedPrefix + command} ❗❗)
+console.log(e)}}
+
+handler.command = /^(menu|menú|memu|memú|help\?)$/i
+handler.register = true
 export default handler
 
+const more = String.fromCharCode(8206)
+const readMore = more.repeat(4001)
 function clockString(ms) {
 let h = isNaN(ms) ? '--' : Math.floor(ms / 3600000)
 let m = isNaN(ms) ? '--' : Math.floor(ms / 60000) % 60
 let s = isNaN(ms) ? '--' : Math.floor(ms / 1000) % 60
-return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')
-}
-
-const more = String.fromCharCode(8206)
-const readMore = more.repeat(850)
+return [h, m, s].map(v => v.toString().padStart(2, 0)).join(':')}  
