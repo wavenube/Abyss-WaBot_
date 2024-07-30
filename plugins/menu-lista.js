@@ -98,6 +98,25 @@ let menu = `
 ⎔ *${lenguajeGB['smsBanChats']()}* ➺ _${Object.entries(global.db.data.chats).filter(chat => chat[1].isBanned).length}_ 
 ⎔ *${lenguajeGB['smsBanUsers']()}* ➺ _${Object.entries(global.db.data.users).filter(user => user[1].banned).length}_ ${(conn.user.jid == global.conn.user.jid ? '' : `\n⎔ *SOY SUB BOT DE: https://wa.me/${global.conn.user.jid.split`@`[0]}*`) || ''}
 
+╭━━❍Eʅɱσ - Bσƚ❍━━╮ 
+ ┃ ╭━━━━━━━━━━━━━━━━╮ 
+ ┃ ┃ ╭┈────────────╮ 
+ ┃ ┃ │❍ 🅼🅴🅽🆄 ❍ 
+ ┃ ┃ ╰┈────────────╯ 
+ ┃ ╰━━━━━━━━━━━━━━━━╯ 
+ ┣━━━▢ ʙᴜᴇɴᴀꜱ, ${taguser}• 
+ ┃╭━━━━━━━━━━━━━━━━╾• 
+ ┃┃  ❍ *_${Object.keys(global.db.data.users).length}_*  ❍ 
+ ┃┣━━━━━━━━━━━━━━━━╾• 
+ ┃┃ ⋄ ᴄʀᴇᴀᴅᴏʀ ᴅᴇʟ ʙᴏᴛ:  Shizu-Hub 
+ ┃┃ ⋄ ꜰᴇᴄʜᴀ » ${horarioFecha} 
+ ┃┃ ⋄ ᴛɪᴇᴍᴘᴏ ᴀᴄᴛɪᴠᴏ » ${uptime} 
+ ┃┃ ⋄ ʟᴇɴɢᴜᴀᴊᴇ » ꜱᴘᴀɴɪꜱʜ 
+ ┃┃ ⋄ _${global.opts['self'] ? `${lenguajeGB['smsModePrivate']().charAt(0).toUpperCase() + lenguajeGB['smsModePrivate']().slice(1).toLowerCase()}` : `${lenguajeGB['smsModePublic']().charAt(0).toUpperCase() + lenguajeGB['smsModePublic']().slice(1).toLowerCase()}`}_
+ ┃╰━━━━━━━━━━━━━━━━╾• 
+ ╰━━━╼Eʅɱσ - Bσƚ╾━━━╯ 
+
+
 ✨ *◜INFORMACIÓN DEL USUARIO◞* ✨
 ⊜ *Tipo de registro »* ${user.registered === true ? `_${user.registroC === true ? 'Registro Completo 🗂️' : 'Registro Rápido 📑'}_` : '❌ _Sin registro_'}
 ⊜ *Mi estado »* ${typeof user.miestado !== 'string' ? '❌ _' + usedPrefix + 'miestado_' : '_Me siento ' + user.miestado + '_'}
