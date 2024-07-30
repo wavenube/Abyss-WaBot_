@@ -31,7 +31,7 @@ const handler = async (m, { conn, command, participants }) => {
 
     // Registrar el handler para "add"
     conn.handler = (m) => {
-        if (m.text.toLowerCase() === 'add') addHandler(m);
+        if (m.text.toLowerCase() === 'addruleta') addHandler(m);
     };
 
     // Función para iniciar el juego
