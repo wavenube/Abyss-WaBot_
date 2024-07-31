@@ -69,7 +69,7 @@ console.error(e)
 }
 }
 
-handler.help = ['play']
+handler.help = ['playbb']
 handler.tags = ['downloader']
 handler.command = /^(play)$/i
 
