@@ -19,8 +19,8 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 }
 
 }
-handler.help = ['bot']
+handler.help = ['bot1']
 handler.tags = ['fun']
-handler.command = ['bot', 'simi'] 
+handler.command = ['bot1', 'simi'] 
 
 export default handler
