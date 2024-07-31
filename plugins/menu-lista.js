@@ -88,7 +88,7 @@ lugarFecha.locale('es', formatoFecha)
 const horarioFecha = lugarFecha.format('dddd, DD [de] MMMM [del] YYYY || HH:mm A').replace(/^\w/, (c) => c.toUpperCase())
 
 if (!/web|desktop|unknown/gi.test(dispositivo)) {  
-let menu = 
+let menu = '
 ╔═════ ∘◦ ✾ ◦∘ ══════╗
 ║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
 ╚═════ ∘◦ ❈ ◦∘ ══════╝
@@ -132,7 +132,7 @@ ${user.registered === true ? _${user.registroC === true ? 'Registro Completo �
 > ║⬛ *_𝐀𝐁𝐘𝐒𝐒 - 𝐁𝐎𝐓_* ⛤
 > ║⬛ *_𝗖𝗥𝗘𝗔𝗗𝗢𝗥 𝗢𝗙𝗖._* ${ig}
 > ║⬛ *_𝗥𝗘𝗗𝗘𝗦 𝗢𝗙𝗖._* ${wm}
-> ╚══════════════ .trim()
+> ╚══════════════' .trim()
       
 const buttonParamsJson = JSON.stringify({
 title: "VER LISTA",
@@ -169,7 +169,7 @@ const message = { messageContextInfo: { deviceListMetadata: {}, deviceListMetada
 await conn.relayMessage(m.chat, { viewOnceMessage: { message } }, {})
       
 } else { 
-let menu = ${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? 🕶️ : user.genero == 'Mujer 🚺' ? 🚺 : user.genero == 'Hombre 🚹' ? 🚹 : '👤'} ${user.registered === true ? user.name : taguser} 💖*
+let menu = '${lenguajeGB['smsConfi2']()} *${user.genero === 0 ? '👤' : user.genero == 'Ocultado 🕶️' ? 🕶️ : user.genero == 'Mujer 🚺' ? 🚺 : user.genero == 'Hombre 🚹' ? 🚹 : '👤'} ${user.registered === true ? user.name : taguser} 💖*
 
 ╔═════ ∘◦ ✾ ◦∘ ══════╗
 ║        𝐀𝐛𝐲𝐬𝐬 - 𝐁𝐨𝐭        
@@ -275,7 +275,7 @@ ${user.registered === true ? _${user.registroC === true ? 'Registro Completo �
 ┃✅ CUENTAS OFICIALES GATABOT ✅
 ┃➺ ${usedPrefix}cuentasgatabot | cuentasgb
 ┃
-╰━━━━━━━━━━━━━⬣*.trim()
+╰━━━━━━━━━━━━━⬣' *.trim()
 await conn.sendFile(m.chat, gataImg, 'lp.jpg', menu, fkontak, false, { contextInfo: {mentionedJid, externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: gt, body: ' 😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽 ', previewType: 0, thumbnail: imagen4, sourceUrl: redesMenu}}}) 
 await conn.sendMessage(m.chat, { audio: { url: vn }, fileName: 'error.mp3', mimetype: 'audio/mp4', ptt: true }, { quoted: m }) 
 //conn.sendFile(m.chat, gataVidMenu.getRandom(), 'gata.mp4', menu, fkontak)
